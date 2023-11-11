@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <!-- <p class="para">QR Generator</p> -->
+        <input type="text" class="input-box" id="inp" placeholder="Enter the word" >
+        <div id="imgBox">
+            <img src=""  id="imgQR" >
+        </div>
+        <button class="btn" onclick="generateQR()">Generate QR</button>
+        <!-- <button class="btn" onclick=`${clicked}?generateQR():deleteQR()`>Generate QR</button> -->
+    </div>
+    <script>
+        let imgBox=document.getElementById("imgBox")
+        let inp=document.getElementById("inp");
+        let imgQR=document.getElementById("imgQR");
+        let clicked=false;
+     
+        function generateQR(){
+              
+              
+              imgQR.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+inp.value;
+              imgBox.classList.toggle("show-img");
+              clicked= !clicked;
+              if(clicked){
+                document.querySelector(".btn").textContent="Delete QR"; 
+                // saveData();
+            }else{
+                document.querySelector(".btn").textContent="Generate QR";
+                // saveData();
+              }
+        
+    
+        }
+
+        // function saveData(){
+        //     localStorage.setItem("data" , container.innerHTML);
+        // }
+        // function getQR(){
+        //     container.innerHTML=localStorage.getItem("data");
+        // }
+        // getQR();
+
+    </script>
+</body>
+
+
+</html>
